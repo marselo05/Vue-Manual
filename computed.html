@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html leng="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Propiedades computadas</title>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+
+	<div id="app">
+		<computed-properties></computed-properties>
+		<computed-properties-get-set></computed-properties-get-set>
+	</div>
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="components/computedComponents/ComputedProperties.js"></script>
+	<script src="components/computedComponents/ComputedPropertiesGetSet.js"></script>
+	<script>
+		const vm = new Vue({
+			el: "#app",
+			data() {
+				return {
+					title: "Computed Properties",
+				}
+			},
+		});
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

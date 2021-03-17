@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html leng="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Vue</title>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+
+	<div id="app">
+		<hello-world></hello-world>
+		<vue-directives></vue-directives>
+	</div>
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="components/HelloWorld.js"></script>
+	<script src="components/DirectiveOnce.js"></script>
+	<script src="components/SlotComponents/buttonComp.js"></script>
+	<script src="components/DirectiveSlot.js"></script>
+	<script src="components/DirectiveModel.js"></script>
+	<script src="components/DirectiveOn.js"></script>
+	<script src="components/DirectiveHtml.js"></script>
+	<script src="components/DirectiveShow.js"></script>
+	<script src="components/DirectiveIf.js"></script>
+	<script src="components/DirectiveFor.js"></script>
+	<script src="components/VueDirectives.js"></script>
+	<script>
+		const vm = new Vue({
+			el: "#app",
+		});
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>
