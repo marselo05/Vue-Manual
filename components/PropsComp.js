@@ -1,17 +1,25 @@
 Vue.component('props-comp', {
 	template: `
-		<div>
+		<div class="container">
 			<h1>Peliculas Props</h1>
-			<MovieComp v-for="(movie, key) in movies" :key="key"
-				:id="movie.id" 
-				:title="movie.title" 
-				:synopsis="movie.synopsis"
-				:cover="movie.cover" 
-				:like="movie.like" 
-				@toggleLike="onToggleLike" 
-			/>
+			<div class="row">
+				<div class="col-12 col-md-6 col-lg-4" v-for="(movie, key) in movies" 
+					:key="key">
+
+					<MovieComp :ref="'movie-'+movie.id" 
+						:id="movie.id" 
+						:title="movie.title" 
+						:synopsis="movie.synopsis"
+						:cover="movie.cover" 
+						:like="movie.like" 
+						@toggleLike="onToggleLike" 
+					/>
+
+				</div>
+			</div>
 			<!--<MovieFav v-if="showFav" @hideFav="onHideFave" />-->
-			<MovieFav :show.sync="showFav" />
+
+			<MovieFav ref="movieFav" :show.sync="showFav" />
 		</div>
 	`,
 	data() {
@@ -59,9 +67,18 @@ Vue.component('props-comp', {
 			// 	this.showFav = false;
 			// }, 1000)			
 		},
+		seyHello() {
+			alert("Hello!")
+		}
 		// onHideFave(show) {
 		// 	this.showFav = show;
 		// }
+	},
+	mounted() {
+		console.log(this.$refs.movieFav.message)
+
+		this.$refs.movieFav.message = "Hola desde le padre";
+		this.$refs.movieFav.showMessage();
 	}
 })
 // :like.sync="movie.like" 

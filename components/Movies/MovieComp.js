@@ -1,11 +1,20 @@
 let MovieComp = {
 	template: `
-		<div>
-			<img :src="cover">
-			<h2 v-text="title"></h2>
-			<p v-text="synopsis"></p>
-			<button @click="toggleLike" v-text="like ? 'Favorita' : 'Agregar a Favorita' "></button>
-			<hr>
+		<div class="card" :class="{
+			'movie-like': like
+		}">
+			<img :src="cover" class="card-img-top">
+			<div class="card-body">
+		    	<h2 class="card-title" v-text="title"></h2>
+			    <p class="card-text" v-text="synopsis"></p>
+				<button class="btn" :class="btnStatus" @click="toggleLike">
+					<span  v-text="like ? 'Favorita' : 'Agregar a Favorita'"></span>
+					<i class="fa-heart" :class="{
+						'far': !like,
+						'fas': like,
+					}"></i>
+				</button>
+		  	</div>
 		</div>
 	`,
 	props: 
@@ -34,6 +43,20 @@ let MovieComp = {
 			}	    	
 	    }
 	},
+	data() {
+		return {
+			className: {
+				'btn-like': true,
+				'btn-light': false,
+				myclass: true
+			},
+		}
+	},
+	computed: {
+		btnStatus() {
+			return this.like ? 'btn-like' : 'btn-light';
+		}
+	},
 	methods: {
 		toggleLike() {
 			// this.like = !this.like;
@@ -49,6 +72,7 @@ let MovieComp = {
 				this.$parent.showFav 	= !this.like;
 			// }
 			// this.$emit('toggleLike', data);
+			this.$parent.seyHello();
 		}
 	}
 	

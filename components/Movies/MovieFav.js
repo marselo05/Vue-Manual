@@ -12,6 +12,16 @@ let MovieFav = {
 			}
 		}
 	},
+	data() {
+		return {
+			message: 'Hola soy el mensaje de Movue Fav',
+		}
+	},
+	methods: {
+		showMessage() {
+			console.log(this.message)
+		}
+	},
 	beforeCreate() {
 		console.log('Esto es antes de que se cree');
 	},
