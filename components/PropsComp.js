@@ -10,7 +10,8 @@ Vue.component('props-comp', {
 				:like="movie.like" 
 				@toggleLike="onToggleLike" 
 			/>
-			<MovieFav v-if="showFav" @hideFav="onHideFave" />
+			<!--<MovieFav v-if="showFav" @hideFav="onHideFave" />-->
+			<MovieFav :show.sync="showFav" />
 		</div>
 	`,
 	data() {
@@ -58,9 +59,9 @@ Vue.component('props-comp', {
 			// 	this.showFav = false;
 			// }, 1000)			
 		},
-		onHideFave(show) {
-			this.showFav = show;
-		}
+		// onHideFave(show) {
+		// 	this.showFav = show;
+		// }
 	}
 })
 // :like.sync="movie.like" 
