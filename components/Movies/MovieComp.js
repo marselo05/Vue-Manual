@@ -1,12 +1,16 @@
 let MovieComp = {
 	template: `
-		<div class="card" :class="{
+		<div :id="id | formatId" class="card" :class="{
 			'movie-like': like
 		}">
 			<img :src="cover" class="card-img-top">
 			<div class="card-body">
-		    	<h2 class="card-title" v-text="title"></h2>
-			    <p class="card-text" v-text="synopsis"></p>
+		    	<h2 class="card-title">
+		    		{{ title | uppercase | reverse }}
+		    	</h2>
+			    <p class="card-text">
+			    	{{ synopsis | excertp }}
+			    </p>
 				<button class="btn" :class="btnStatus" @click="toggleLike">
 					<span  v-text="like ? 'Favorita' : 'Agregar a Favorita'"></span>
 					<i class="fa-heart" :class="{
@@ -42,6 +46,21 @@ let MovieComp = {
 				return false;
 			}	    	
 	    }
+	},
+	filters: {
+		formatId(value) {
+			return `movieCard-${value}`;
+		},
+		uppercase(value) {
+			return value.toUpperCase();
+		},
+		reverse(value) {
+			let word = value.split('');
+			return word.reverse().join('');
+		},
+		excertp(value) {
+			return value.substring(0, 40) + '...';
+		}
 	},
 	data() {
 		return {
