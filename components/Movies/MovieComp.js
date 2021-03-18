@@ -37,11 +37,18 @@ let MovieComp = {
 	methods: {
 		toggleLike() {
 			// this.like = !this.like;
-			let data = {
-				id: 	this.id,
-				like: 	!this.like
-			}
-			this.$emit('toggleLike', data);
+			// let data = {
+			// 	id: 	this.id,
+			// 	like: 	!this.like
+			// }
+
+			// if (!this.like) 
+			// {
+				let movie 				= this.$parent.movies.find( m => m.id == this.id);
+					movie.like 			= !this.like;
+				this.$parent.showFav 	= !this.like;
+			// }
+			// this.$emit('toggleLike', data);
 		}
 	}
 	

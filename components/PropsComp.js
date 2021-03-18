@@ -50,7 +50,7 @@ Vue.component('props-comp', {
 		{
 			let movieLike 		= this.movies.find(movie => movie.id == data.id);
 				movieLike.like 	= data.like;
-				this.showFav    = data.like;
+				// this.showFav    = data.like;
 			// if(!data.like) {
 			// 	return
 			// }
